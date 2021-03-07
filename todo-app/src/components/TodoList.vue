@@ -11,6 +11,7 @@
                 <th>タスク</th>
                 <th>追加された日時</th>
                 <th>完了</th>
+                <th>完了された日時</th>
                 <th>削除</th>
             </tr>
             <TodoListItem2
@@ -62,11 +63,11 @@ export default {
         addTodo() {
             const trimmedText = this.newTodoText.trim()
             if (trimmedText) {
-                var date = new Date()
+                var addeddate = new Date()
                 this.todos.push({
                     id: nextTodoId++,
                     text: trimmedText,
-                    date: date
+                    addeddate: addeddate
                 })
                 this.newTodoText = ''
             }

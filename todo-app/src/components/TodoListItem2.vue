@@ -2,8 +2,9 @@
     <tr>
         <td>{{ todo.id }}</td>
         <td>{{ todo.text }}</td>
-        <td>{{ addedDate }}</td>
+        <td>{{ addedDateFormatted }}</td>
         <td><input type="checkbox"></td>
+        <td></td>
         <td>
           <button @click="$emit('remove', todo.id)">
           削除する
@@ -21,7 +22,7 @@ export default {
         }
     },
     computed: {
-        addedDate: function(){
+        addedDateFormatted: function(){
             return this.todo.date.toLocaleString('ja')
         }
     }

@@ -45,7 +45,7 @@ td, th {
 }
 
 th {
-    background-color: rgb(235,235,235);
+    background-color: rgb(230,230,230);
 }
   
 td {
@@ -57,11 +57,11 @@ tr:nth-child(even) td {
 }
 
 tr:nth-child(odd) td {
-    background-color: rgb(245,245,245);
+    background-color: rgb(240,240,240);
 }
 
 tr:hover td {
-    background-color: #9bf0c9;
+    background-color: #c2d6f1;
     color: #000;
 }
 
