@@ -19,6 +19,7 @@
               :key="todo.id"
               :todo="todo"
               @remove="removeTodo"
+              @change="completeTodo"
             />
         </table>
         <p v-else>Todoリストに何も登録されていません．上の入力欄から新たなTodoを追加してください．</p>
@@ -43,17 +44,20 @@ export default {
                 {
                     id: nextTodoId++,
                     text: 'Vue.jsを勉強する',
-                    addedDate: new Date(2021, 2, 5, 9, 12, 53)
+                    addedDate: new Date(2021, 2, 5, 9, 12, 53),
+                    completedDate: new Date(2021, 2, 5, 13, 4, 24)
                 },
                 {
                     id: nextTodoId++,
                     text: 'ハンドボールを練習する',
-                    addedDate: new Date(2021, 2, 6, 10, 23, 2)
+                    addedDate: new Date(2021, 2, 6, 10, 23, 2),
+                    completedDate: new Date(2021, 2, 6, 21, 43, 24)
                 },
                 {
                     id: nextTodoId++,
                     text: '数学2Dの予習をする',
-                    addedDate: new Date(2021, 2, 7, 11, 56, 23)
+                    addedDate: new Date(2021, 2, 7, 11, 56, 23),
+                    completedDate: ""
                 }
             ]
         }
@@ -67,7 +71,8 @@ export default {
                 this.todos.push({
                     id: nextTodoId++,
                     text: trimmedText,
-                    addedDate: addedDate
+                    addedDate: addedDate,
+                    completedDate: ""
                 })
                 this.newTodoText = ''
             }
@@ -76,6 +81,15 @@ export default {
             this.todos = this.todos.filter(todo => {
                 return todo.id !== idToRemove
             })
+        },
+        completeTodo(completed, ToChange){
+            if (completed){
+            /* unchecked -> checked の変更の場合はタスクが完了した時刻を今の時刻に設定する */
+                ToChange.completedDate = new Date()
+            } else {
+            /* checked -> unchecked の変更の場合はタスクが未完了に戻されたということなので完了時刻を表示しないようにから文字列に設定する*/
+                ToChange.completedDate = ""
+            }
         }
     }
 }
