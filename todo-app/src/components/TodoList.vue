@@ -34,15 +34,18 @@ export default {
             todos: [
                 {
                     id: nextTodoId++,
-                    text: 'Vue.jsを勉強する'
+                    text: 'Vue.jsを勉強する',
+                    date: new Date(2021, 2, 5, 9, 12, 53)
                 },
                 {
                     id: nextTodoId++,
-                    text: 'ハンドボールを練習する'
+                    text: 'ハンドボールを練習する',
+                    date: new Date(2021, 2, 6, 10, 23, 2)
                 },
                 {
                     id: nextTodoId++,
-                    text: '数学2Dの予習をする'
+                    text: '数学2Dの予習をする',
+                    date: new Date(2021, 2, 7, 11, 56, 23)
                 }
             ]
         }
@@ -52,9 +55,11 @@ export default {
         addTodo() {
             const trimmedText = this.newTodoText.trim()
             if (trimmedText) {
+                var date = new Date()
                 this.todos.push({
                     id: nextTodoId++,
-                    text: trimmedText
+                    text: trimmedText,
+                    date: date
                 })
                 this.newTodoText = ''
             }
