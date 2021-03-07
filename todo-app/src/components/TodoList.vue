@@ -5,27 +5,34 @@
           placeholder="新しいTodoを入力"
           @keyup.enter="addTodo"
         />
-        <ul v-if="todos.length">
-            <TodoListItem
+        <table v-if="todos.length">
+            <tr>
+                <th>ID</th>
+                <th>タスク</th>
+                <th>追加された日時</th>
+                <th>完了</th>
+                <th>削除</th>
+            </tr>
+            <TodoListItem2
               v-for="todo in todos"
               :key="todo.id"
               :todo="todo"
               @remove="removeTodo"
             />
-        </ul>
+        </table>
         <p v-else>Todoリストに何も登録されていません．上の入力欄から新たなTodoを追加してください．</p>
     </div>
 </template>
 
 <script>
 import TodoInput from './TodoInput.vue'
-import TodoListItem from './TodoListItem.vue'
+import TodoListItem2 from './TodoListItem2.vue'
 
 let nextTodoId = 1
 
 export default {
     components: {
-        TodoInput, TodoListItem
+        TodoInput, TodoListItem2
     },
 
     data () {
