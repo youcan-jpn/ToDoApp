@@ -3,7 +3,10 @@
         <td>{{ todo.id }}</td>
         <td>{{ todo.text }}</td>
         <td>{{ addedDateFormatted }}</td>
-        <td><input type="checkbox" v-model="completed" @change="$emit('change', completed, todo)">{{ judgeCompleted(completed) }}</td>
+        <td><input type="checkbox" v-model="completed" @change="$emit('change', completed, todo)">
+          <span v-if="completed">済</span>
+          <span v-else>未完了</span>
+        </td>
         <td>{{ completedDateFormatted }}</td>
         <td>
           <button @click="$emit('remove', todo.id)">
@@ -32,15 +35,6 @@ export default {
         },
         completedDateFormatted: function(){
             return this.todo.completedDate.toLocaleString('ja')
-        }
-    },
-    methods: {
-        judgeCompleted: function(c){
-            if(c) {
-                return "済"
-            } else {
-                return "未完了"
-            }
         }
     }
 }

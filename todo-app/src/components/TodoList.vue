@@ -45,13 +45,13 @@ export default {
                     id: nextTodoId++,
                     text: 'Vue.jsを勉強する',
                     addedDate: new Date(2021, 2, 5, 9, 12, 53),
-                    completedDate: new Date(2021, 2, 5, 13, 4, 24)
+                    completedDate: ""
                 },
                 {
                     id: nextTodoId++,
                     text: 'ハンドボールを練習する',
                     addedDate: new Date(2021, 2, 6, 10, 23, 2),
-                    completedDate: new Date(2021, 2, 6, 21, 43, 24)
+                    completedDate: ""
                 },
                 {
                     id: nextTodoId++,

@@ -61,7 +61,7 @@ tr:nth-child(odd) td {
 }
 
 tr:hover td {
-    background-color: #c2d6f1;
+    background-color: #ade1ff;
     color: #000;
 }
 
